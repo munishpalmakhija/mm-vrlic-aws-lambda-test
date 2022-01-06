@@ -30,4 +30,4 @@ jobs:
         cache-dependency-path: aws/yarn.lock
     - run: npm ci
     - run: npm test
-      working-directory: aws
+      working-directory: ./aws
