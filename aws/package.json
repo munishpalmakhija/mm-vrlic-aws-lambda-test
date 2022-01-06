@@ -1,0 +1,33 @@
+{
+  "name": "li-lambda-collector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src/** test/**",
+    "test": "jest test",
+    "coverage": "jest --collectCoverageFrom=src/**.js --coverage test"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "testPathIgnorePatterns": [
+      "<rootDir>/test/helper.test.js",
+      "<rootDir>/node_modules/"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.7.0",
+    "jest": "^27.2.0",
+    "jsdom": "16.4.0",
+    "nock": "^9.6.1"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.268.1",
+    "tar-stream": "^2.1.0",
+    "unzip-stream": "^0.3.0"
+  }
+}
