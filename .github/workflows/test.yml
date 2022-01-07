@@ -41,7 +41,9 @@ jobs:
     - name: Verify Dependencies for Azure
       working-directory: azure    
       run: | 
-        cd ../azure
+        cd ..
+        pwd
+        cd azure
         if [ -e yarn.lock ]; then
         yarn install --frozen-lockfile
         elif [ -e package-lock.json ]; then
