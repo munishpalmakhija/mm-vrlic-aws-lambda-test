@@ -29,6 +29,6 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       working-directory: aws
       run: | 
-        yarn && CI=true
-        yarn install
-        yarn build
+        npm init --yes
+        npm ci
+        npm test
