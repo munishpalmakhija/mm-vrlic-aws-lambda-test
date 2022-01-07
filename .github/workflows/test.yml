@@ -23,7 +23,7 @@ jobs:
       with:
         path: aws    
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: ./
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn install
