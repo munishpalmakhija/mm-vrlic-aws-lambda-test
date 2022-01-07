@@ -29,5 +29,6 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       working-directory: aws
       run: | 
+        cd aws
         npm ci
         npm test
