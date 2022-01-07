@@ -26,10 +26,22 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Dependencies
+    - name: Verify Dependencies for AWS 
       working-directory: aws    
       run: | 
         cd aws
+        if [ -e yarn.lock ]; then
+        yarn install --frozen-lockfile
+        elif [ -e package-lock.json ]; then
+        npm ci
+        else
+        npm i
+        fi
+        npm test
+    - name: Verify Dependencies for Azure
+      working-directory: azure    
+      run: | 
+        cd azure
         if [ -e yarn.lock ]; then
         yarn install --frozen-lockfile
         elif [ -e package-lock.json ]; then
