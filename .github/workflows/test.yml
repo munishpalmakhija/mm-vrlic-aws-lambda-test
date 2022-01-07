@@ -19,7 +19,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2  
+    - uses: actions/checkout@v2
+      with:
+        path: aws
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
@@ -36,11 +38,27 @@ jobs:
         npm i
         fi
         npm test
+ 
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        path: azure
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
     - name: Verify Dependencies for Azure
-      working-directory: azure    
+      working-directory: aws    
       run: | 
-        cd ..
-        pwd
         cd azure
         if [ -e yarn.lock ]; then
         yarn install --frozen-lockfile
