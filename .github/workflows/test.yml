@@ -29,6 +29,5 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       working-directory: aws
       run: | 
-        npm init --yes
         npm ci
         npm test
