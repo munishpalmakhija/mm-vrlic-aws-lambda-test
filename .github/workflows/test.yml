@@ -20,11 +20,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        path: aws    
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-      working-directory: aws/package.json
+      working-directory: aws
     - run: npm test
       working-directory: aws
