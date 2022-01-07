@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  buildaws:
 
     runs-on: ubuntu-latest
     strategy:
@@ -40,7 +40,7 @@ jobs:
         npm test
  
 jobs:
-  build:
+  buildazure:
 
     runs-on: ubuntu-latest
     strategy:
