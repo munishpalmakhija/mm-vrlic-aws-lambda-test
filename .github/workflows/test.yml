@@ -26,9 +26,12 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Install Dependencies
       working-directory: aws
       run: | 
         cd aws
+        if [ -e yarn.lock ]; then
+        yarn install --frozen-lockfile
+        elif [ -e package-lock.json ]; then
         npm ci
         npm test
