@@ -39,7 +39,6 @@ jobs:
         fi
         npm test
  
-jobs:
   buildazure:
 
     runs-on: ubuntu-latest
