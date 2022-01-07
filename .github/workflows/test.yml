@@ -27,7 +27,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install Dependencies
-      working-directory: aws
       run: | 
         cd aws
         if [ -e yarn.lock ]; then
